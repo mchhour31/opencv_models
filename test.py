@@ -42,6 +42,5 @@ def changeRes(width, height):
 imgPath = "./Resources/Photos/cat.jpg"
 videoPath = "./Resources/Videos/dog.mp4"
 readImage(imgPath)
-# readVideo(videoPath)
 
 cv.waitKey(0)
