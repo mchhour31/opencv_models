@@ -26,8 +26,18 @@ def readVideo(path):
     
     capture.release()
     cv.destroyAllWindows()
-
+    
 def rescaleFrame(frame, scale=0.75):
+    """
+    The function rescales a given frame by a specified scale factor using OpenCV's resize function.
+    
+    :param frame: The input frame that needs to be resized
+    :param scale: The scale parameter is a float value that determines the scaling factor for the input
+    frame. It is used to resize the frame by multiplying its width and height by the scale value. The
+    default value of scale is 0.75, which means that the output frame will be 75% of the size
+    :return: The function `rescaleFrame` returns a resized version of the input `frame` with the
+    specified `scale` factor. The returned value is the resized frame.
+    """
     width = int(frame.shape[1] * scale)
     height = int(frame.shape[0] * scale)
     dimensions = (width, height)
