@@ -7,7 +7,8 @@ cv.imshow('Park', img)
 def translate(img, x, y):
     """
     This function translates an image by a given amount in the x and y directions using an affine
-    transformation.
+    transformation. Affine transformations preserve the parallelism of lines, this ensures objects in 2D/3D remain unchanged 
+    during a given transformation.
     
     :param img: The input image that needs to be translated
     :param x: The amount of horizontal translation (in pixels) to be applied to the image. A positive
@@ -19,9 +20,9 @@ def translate(img, x, y):
     :return: a translated image, where the original image has been shifted by x pixels horizontally and
     y pixels vertically using an affine transformation matrix.
     """
-    transMat = np.float32([[1,0,x],[0,1,y]])
-    dimensions = (img.shape[1], img.shape[0])
-    return cv.warpAffine(img, transMat, dimensions)
+    xShift = np.float32([[1,0,x],[0,1,y]])
+    yShift = (img.shape[1], img.shape[0])
+    return cv.warpAffine(img, xShift, yShift)
 
 # rotation
 def rotation(img, angle, rotPoint=None):
